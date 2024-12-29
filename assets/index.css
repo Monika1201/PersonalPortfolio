@@ -13,13 +13,15 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
-    background: var(--gradient-bg);
+    width: 100%;
     font-family: 'Verdana', sans-serif;
     color: var(--text-color-light);
-    overflow: auto;
+    background: var(--gradient-bg);
+    overflow-x: hidden;
 }
 
 .container {
@@ -125,11 +127,13 @@ header .logo {
 
 .content-container {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 50px;
-    height: calc(100vh - 80px);
     gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
     box-sizing: border-box;
 }
 
@@ -234,14 +238,37 @@ header .logo {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .content-container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         text-align: center;
     }
 
     .right-section img {
-        max-width: 200px;
+        max-width: 250px;
+    }
+
+    .content-container .left-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .content-container .left-section h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header .menu a {
+        font-size: 1rem;
+    }
+
+    .content-container .left-section h1 {
+        font-size: 2rem;
+    }
+
+    .social-links a {
+        width: 35px;
+        height: 35px;
     }
 }
 
@@ -252,7 +279,7 @@ header .logo {
     }
 
     .content-container {
-        padding: 20px;
+        padding: 15px;
         flex-direction: column;
     }
 
@@ -260,25 +287,15 @@ header .logo {
         font-size: 1.8rem;
     }
 
-    .content-container .left-section h2 {
-        font-size: 1rem;
-    }
-
-    .content-container .left-section p {
-        font-size: 0.9rem;
-    }
-
-    .content-container .right-section img {
-        width: 150px;
-        height: 150px;
-    }
-
     .social-links a {
         width: 30px;
         height: 30px;
     }
-}
 
+    .right-section img {
+        max-width: 150px;
+    }
+}
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     .loader {
